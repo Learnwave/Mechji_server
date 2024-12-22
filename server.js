@@ -12,7 +12,7 @@ const port = process.env.port || 4000;
 
 connectDB();
 
-const allowedOrigins = ["http://localhost:5173"]
+const allowedOrigins = ["http://localhost:5174",]
 
 app.use(express.json());
 
