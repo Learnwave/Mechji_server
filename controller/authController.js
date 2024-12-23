@@ -90,7 +90,7 @@ export const logout = async (req,res)=> {
                     httpOnly : true,
                     secure: process.env.Node_env === 'production',
                     sameSite : process.env.Node_env === 'production' ? "none" : "strict",
-                    maxAge : 7 * 24 * 60 * 1000
+                   
 
                 })
                 return res.json({success:true,message:"Logged Out"});
@@ -220,6 +220,7 @@ export const verifyOtp = async (req,res) => {
                 }
             } catch (error) {
                 return res.json({success:false,message: error.message});
+
             }
 }
 
