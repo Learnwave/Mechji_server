@@ -5,14 +5,18 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 import authRouter from "./Routes/authRoute.js";
 import userRouter from "./Routes/userRoute.js";
+import connectCloudinary from "./config/cloudinary.js";
+import adminRouter from "./Routes/adminRoute.js";
 
 const app = express();
 
 const port = process.env.port || 4000;
 
-connectDB();
 
-const allowedOrigins = ["http://localhost:5174",]
+connectDB();
+connectCloudinary();
+
+const allowedOrigins = ["http://localhost:5175",]
 
 app.use(express.json());
 
@@ -25,6 +29,8 @@ app.use(cors({origin:allowedOrigins,credentials: true}));
 
 app.use('/api/auth',authRouter);
 app.use('/api/user',userRouter);
+app.use('/api/admin',adminRouter);
+
 
 app.get("/",(req,res)=>{
         res.send("Api is working fine");
