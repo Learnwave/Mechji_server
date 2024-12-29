@@ -42,7 +42,7 @@ export const register = async (req,res) => {
 
                 await transporter.sendMail(mailOptions);
 
-                return res.json({success:true})
+                return res.json({success:true,message:"You are register successfully",token})
 
 
             } catch (error) {
@@ -76,7 +76,7 @@ export const Login = async (req,res) =>{
 
                 });
 
-                return res.json({success:true})
+                return res.json({success:true,message:"Logged In",token})
                 
             } catch (error) {
                 return res.json({success:false,message: error.message});

@@ -16,7 +16,7 @@ const port = process.env.port || 4000;
 connectDB();
 connectCloudinary();
 
-const allowedOrigins = ["http://localhost:5175",]
+const allowedOrigins = ["http://localhost:5173",]
 
 app.use(express.json());
 
